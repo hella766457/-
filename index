@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>오늘의 운세 확인</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #333;
+        }
+        /* 파란색 링크 글자 스타일 */
+        .link-button {
+            background: none;
+            border: none;
+            color: #007bff; /* 파란색 */
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer; /* 마우스를 올리면 손가락 모양으로 변경 */
+            text-decoration: underline;
+            padding: 10px;
+            margin: 20px 0;
+        }
+        .result-box {
+            margin-top: 30px;
+            padding: 20px;
+            border: 2px solid #5cb85c;
+            background-color: #dff0d8;
+            color: #3c763d;
+            border-radius: 8px;
+            min-width: 300px;
+            text-align: center;
+            font-size: 18px;
+            display: none; /* 초기에는 숨김 */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>[오늘의 운세 확인]</h1>
+    
+    <button class="link-button" onclick="showFortune()">
+        >>즉시확인<<
+    </button>
+    
+    <div id="fortuneResult" class="result-box">
+        </div>
+
+    <script>
+        // 오늘의 운세 목록
+        const fortunes = [
+            "✨ 오늘은 행운이 따르는 하루입니다. 새로운 도전을 망설이지 마세요!",
+            "🍀 작게 시작한 일이 큰 결실을 맺습니다. 주변 사람들에게 감사함을 표현하세요.",
+            "⚠️ 예상치 못한 지출에 주의하세요. 중요한 결정은 내일로 미루는 것이 좋습니다.",
+            "💖 사랑하는 사람과의 관계가 더욱 깊어집니다. 먼저 연락해보세요.",
+            "🧘 잠시 멈추고 자신을 돌아보는 시간이 필요합니다. 휴식이 곧 에너지입니다."
+        ];
+
+        function showFortune() {
+            // 1. 운세 목록에서 랜덤으로 하나 선택
+            const randomIndex = Math.floor(Math.random() * fortunes.length);
+            const selectedFortune = fortunes[randomIndex];
+
+            // 2. 결과 박스에 내용 삽입
+            const resultBox = document.getElementById('fortuneResult');
+            resultBox.innerHTML = "🔮 **오늘의 운세:** " + selectedFortune;
+            
+            // 3. 결과 박스를 보이게 함
+            resultBox.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
